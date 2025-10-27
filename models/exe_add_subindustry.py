@@ -22,7 +22,9 @@ class ResPartner(models.Model):
     subindustry_id = fields.Many2one('res.partner.subindustry', string='Subindustria')
     anmat_certification = fields.Boolean(string='Certificación ANMAT')
     subclient_id = fields.Many2one('res.partner.subclient', string='Subcliente')
-    
+    cufe_expiration_attachment = fields.Binary(string='Vencimiento CUFE')
+    cufe_expiration_filename = fields.Char(string='Nombre del archivo CUFE')
+
 class ResPartnerSubIClient(models.Model):
     _name = 'res.partner.subclient'
     _description = 'Subcliente'
