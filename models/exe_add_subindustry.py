@@ -15,8 +15,17 @@ class ResPartnerSubIndustry(models.Model):
 
 
 
+
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     subindustry_id = fields.Many2one('res.partner.subindustry', string='Subindustria')
     anmat_certification = fields.Boolean(string='Certificación ANMAT')
+    subclient_id = fields.Many2one('res.partner.subclient', string='Subcliente')
+    
+class ResPartnerSubIClient(models.Model):
+    _name = 'res.partner.subclient'
+    _description = 'Subcliente'
+
+    name = fields.Char(string='Nombre', required=True)
+    client_id = fields.Many2one('res.partner', string='Cliente relacionado')
