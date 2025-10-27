@@ -1,0 +1,56 @@
+    <odoo>
+        <record id="view_subindustry_tree" model="ir.ui.view">
+            <field name="name">res.partner.subindustry.tree</field>
+            <field name="model">res.partner.subindustry</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="industry_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_subindustry_form" model="ir.ui.view">
+            <field name="name">res.partner.subindustry.form</field>
+            <field name="model">res.partner.subindustry</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="industry_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_subindustry" model="ir.actions.act_window">
+            <field name="name">Subindustrias</field>
+            <field name="res_model">res.partner.subindustry</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_subindustry"
+                name="Subindustrias"
+                parent="contacts.res_partner_industry_menu"
+                
+                action="action_subindustry"
+                sequence="20"/>
+        
+        <!--contacts.menu_partner_industry
+        -->          
+        <record id="view_partner_form_inherit_subindustry" model="ir.ui.view">
+            <field name="name">res.partner.form.subindustry</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+            <!-- Insertar dentro de la pestaña ventas y compras -->
+            <xpath expr="//page[@name='sales_purchases']" position="inside">
+                <group string="Subindustria">
+                <field name="subindustry_id" />
+                </group>
+                <field name="anmat_certification" />
+            </xpath>
+            </field>
+    </record>
+
+    </odoo>
