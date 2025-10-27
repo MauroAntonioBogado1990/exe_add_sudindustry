@@ -44,11 +44,11 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
             <!-- Insertar dentro de la pestaña ventas y compras -->
-            <xpath expr="//page[@name='sales_purchases']" position="inside">
-                <group string="Subindustria">
+            <xpath expr="//page[@name='sales_purchases']/group/group[@name='misc']/field[@name='industry_id']" position="after">
+                
                 <field name="subindustry_id" />
-                </group>
-                <field name="anmat_certification" />
+
+                <field name="anmat_certification" string="Certificación ANMAT" />
             </xpath>
             </field>
     </record>
