@@ -18,8 +18,16 @@ class ResPartnerSubIndustry(models.Model):
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
+    
+    industry_id = fields.Many2one('res.partner.industry', string='Industria')
+    subindustry_id = fields.Many2one(
+        'res.partner.subindustry',
+        string='Subindustria',
+        domain="[('industry_id', '=', industry_id)]"
+    )
 
-    subindustry_id = fields.Many2one('res.partner.subindustry', string='Subindustria')
+    #campo existente
+    #subindustry_id = fields.Many2one('res.partner.subindustry', string='Subindustria')
     anmat_certification = fields.Boolean(string='Certificación ANMAT')
     subclient_id = fields.Many2one('res.partner.subclient', string='Subcliente')
     cufe_expiration_attachment = fields.Binary(string='Vencimiento CUFE')

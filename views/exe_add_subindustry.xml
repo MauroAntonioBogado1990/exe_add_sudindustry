@@ -31,12 +31,14 @@
 
         <menuitem id="menu_subindustry"
                 name="Subindustrias"
-                parent="contacts.res_partner_industry_menu"
+                parent="contacts.res_partner_menu_config"
                 
                 action="action_subindustry"
-                sequence="20"/>
+                sequence="4"/>
         
         <!--contacts.menu_partner_industry
+        contacts.res_partner_industry_menu
+        contacts.menu_partner_industry
         -->          
         <record id="view_partner_form_inherit_subindustry" model="ir.ui.view">
             <field name="name">res.partner.form.subindustry</field>
@@ -47,25 +49,25 @@
             <xpath expr="//page[@name='sales_purchases']/group/group[@name='misc']/field[@name='industry_id']" position="after">
                 
                 <field name="subindustry_id" />
+
+                <field name="anmat_certification" string="Certificación ANMAT" />
+                <field name="subclient_id"/>
                 
-                <!-- <field name="anmat_certification" string="Certificación ANMAT" /> -->
             </xpath>
             </field>
     </record>
-    <!--agregado subclientes -->
-    <record id="view_partner_form_inherit_subclient" model="ir.ui.view">
+    <!-- <record id="view_partner_form_inherit_subclient" model="ir.ui.view">
     <field name="name">res.partner.form.subclient</field>
     <field name="model">res.partner</field>
     <field name="inherit_id" ref="base.view_partner_form"/>
     <field name="arch" type="xml">
-        <!-- Insertar debajo de método de entrega -->
+        
         <xpath expr="//page[@name='sales_purchases']//field[@name='property_delivery_carrier_id']" position="after">
             <field name="subclient_id"/>
-            <field name="anmat_certification" string="Certificación ANMAT" /> 
         </xpath>
 
     </field>
-</record>
+</record> -->
 <!--campo cufe-->
 <record id="view_partner_form_inherit_cufe" model="ir.ui.view">
     <field name="name">res.partner.form.cufe</field>
